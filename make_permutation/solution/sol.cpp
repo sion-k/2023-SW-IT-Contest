@@ -9,13 +9,13 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int a;
-    cin >> a;
+    int n;
+    cin >> n;
 
-    if (a == 1) cout << 1;
-    else if (a == 2) cout << -1;
+    if (n == 1) cout << 1;
+    else if (n == 2) cout << -1;
     else {
         cout << "1 3 2 ";
-        for (int i = 4; i <= a; i++) cout << i << " ";
+        for (int i = 4; i <= n; i++) cout << i << " ";
     }
 }

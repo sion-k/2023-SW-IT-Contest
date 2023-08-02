@@ -9,15 +9,15 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    int a;
-    cin >> a;
+    int n;
+    cin >> n;
 
-    ll k[a], ka[a], ans[a], now = 0;
-    for (int i = 0; i < a; i++) {
+    ll k[n], ka[n], ans[n], now = 0;
+    for (int i = 0; i < n; i++) {
         cin >> k[i];
         ka[i] = k[i];
     }
-    for (int i = a - 2; i >= 0; i--) {
+    for (int i = n - 2; i >= 0; i--) {
         ka[i] = max(ka[i], ka[i + 1] + 1);
         now += ka[i] - k[i];
     }
@@ -29,7 +29,7 @@ int main() {
     now += ka[1] - k[1] + ka[0] - k[0];
     ans[1] = now;
 
-    for (int i = 2; i < a; i++) {
+    for (int i = 2; i < n; i++) {
         now -= ka[i] - k[i] + ka[i - 1] - k[i - 1];
         ka[i - 1] = max(k[i - 1], ka[i - 2] + 1);
         ka[i] = max(ka[i], ka[i - 1] + 1);
