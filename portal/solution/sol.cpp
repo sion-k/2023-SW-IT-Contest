@@ -15,6 +15,7 @@ int find(int x) {
 void unite(int x, int y) {
     x = find(x);
     y = find(y);
+    if (x == y) return;
     uf[x] = y;
 }
 
@@ -25,36 +26,31 @@ int main() {
 
     int n;
     cin>>n;
-    int cycle[n+1],inv[n+1];
-
+    int p[n+1],inv[n+1];
     bool visit[n+1];
     memset(visit,0,sizeof(visit));
 
     for(int i=1; i<=n; i++) {
-        cin>>cycle[i];
-        inv[cycle[i]]=i;
+        cin>>p[i];
+        inv[p[i]]=i;
     }
     for(int i=1; i<=n; i++){
-        int p=i;
-        while(!visit[p]){
-            visit[p]=true;
-            int nxt=cycle[p];
-            unite(p,nxt);
-            p=nxt;
+        int v=i;
+        while(!visit[v]){
+            unite(v,i);
+            visit[v]=true;
+            v=p[v];
         }
     }
 
     vector<pii> ans;
-    for(int i=1; i<=n; i++){
-        if(cycle[i]>1 && find(cycle[i])!=find(cycle[i]-1)){
-            ans.push_back({i,inv[cycle[i]-1]});
-            unite(cycle[i],cycle[i]-1);
-            swap(cycle[i],cycle[inv[cycle[i]-1]]);
-        }
-        if(cycle[i]<n && find(cycle[i])!=find(cycle[i]+1)){
-            ans.push_back({i,inv[cycle[i]+1]});
-            unite(cycle[i],cycle[i]+1);
-            swap(cycle[i],cycle[inv[cycle[i]+1]]);
+    for(int i=1; i<n; i++){
+        int w=inv[i],x=inv[i+1],y=i,z=i+1;
+        if(find(y)!=find(z)){
+            unite(y,z);
+            ans.push_back({w,x});
+            std::swap(p[w],p[x]);
+            std::swap(inv[y],inv[z]);
         }
     }
     cout<<ans.size()<<" "<<ans.size()<<"\n";
