@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     registerValidation(argc, argv);
 
     int a = inf.readInt(N_MIN, N_MAX, "a");
-    inf.readEoln();
+    inf.readSpace();
     int b = inf.readInt(N_MIN, N_MAX, "b");
     inf.readSpace();
     int c = inf.readInt(N_MIN, N_MAX, "c");
