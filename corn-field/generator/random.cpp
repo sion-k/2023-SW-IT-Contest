@@ -24,5 +24,5 @@ int main(int argc, char* argv[]) {
         }
         cout<<"\n";
     }
-    cout<<rnd.next(N_MIN,n*m)<<"\n";
+    cout<<rnd.next(1,min(100'000,n*m))<<"\n";
 }

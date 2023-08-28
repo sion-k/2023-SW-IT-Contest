@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
         }
         inf.readEoln();
     }
-    int v=inf.readInt(1,n*m,"v");
+    int v=inf.readInt(1,min(100'000,n*m),"v");
     inf.readEoln();
     inf.readEof();
 
