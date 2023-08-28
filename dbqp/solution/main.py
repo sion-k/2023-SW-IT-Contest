@@ -3,14 +3,10 @@ s = list(input() for _ in range(n))
 
 flip = {}
 
-flip[('d', 1)] = flip[('d', 2)] = 'q'
-flip[('d', 3)] = flip[('d', 4)] = 'b'
-flip[('b', 1)] = flip[('b', 2)] = 'p'
-flip[('b', 3)] = flip[('b', 4)] = 'd'
-flip[('q', 1)] = flip[('q', 2)] = 'd'
-flip[('q', 3)] = flip[('q', 4)] = 'p'
-flip[('p', 1)] = flip[('p', 2)] = 'b'
-flip[('p', 3)] = flip[('p', 4)] = 'q'
+flip[('d', 1)], flip[('d', 2)] = 'q', 'b'
+flip[('b', 1)], flip[('b', 2)] = 'p', 'd'
+flip[('q', 1)], flip[('q', 2)] = 'd', 'p'
+flip[('p', 1)], flip[('p', 2)] = 'b', 'q'
 
 for i in range(n):
     t = []

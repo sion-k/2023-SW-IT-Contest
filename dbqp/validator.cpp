@@ -3,7 +3,7 @@
 using namespace std;
 
 const int N_MIN = 1, N_MAX = 10;
-const int D_MIN = 1, D_MAX = 4;
+const int D_MIN = 1, D_MAX = 2;
 
 int main(int argc, char* argv[]) {
     registerValidation(argc, argv);
