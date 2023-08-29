@@ -16,7 +16,6 @@ int main(int argc, char* argv[]) {
     cout << r << " " << p << " " << q << "\n";
 
     for (int i = 0; i < r; i++) {
-
         int s = rnd.next(N / 4, N - 1);
         int u = rnd.next(0, 1);
         int x, y;
