@@ -26,14 +26,15 @@ void dfs(int x){
 void find_bridge(int x,int p=-1){
     visit[x]=true;
     tin[x]=low[x]=t++;
-    for(int u:adj[x]){
+    for(int i=0; i<adj[x].size(); i++){
+        int u=adj[x][i];
         if(u==p) continue;
         if(visit[u]){
             low[x]=min(low[x],tin[u]);
         }else{
             find_bridge(u,x);
             low[x]=min(low[x],low[u]);
-            if(low[u]>tin[x]) bridge=true;
+            if(low[u]>tin[x] && (adj[u].size()<=2 || adj[x].size()<=2)) bridge=true;
         }
     }
 }
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
     }
 
     int s=-1;
-    for(int i=1; i<n; i++){
+    for(int i=1; i<=n; i++){
         if(adj[i].size()>1){
             s=i;
             break;
@@ -85,7 +86,7 @@ int main(int argc, char* argv[]) {
         memset(visit,0,sizeof(visit));
         find_bridge(s);
         if(bridge){
-            quitf(_wa,"This graph has at least one bridge");
+            quitf(_wa,"Wrong Answer");
         }else{
             quitf(_ok,"Answer is true");
         }
