@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
             quitf(_wa,"Your answer is not same as sum: sum = %lld, answer = %lld",sum,answer);
         }
         else{
-            quitf(_ok,"Ok. Answer is correct");
+            quitf(_ok,"Answer is correct");
         }
     }
 }

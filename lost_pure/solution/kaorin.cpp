@@ -61,7 +61,16 @@ vector<int> rec(int x){
     }
     if(x==s){
         if(n.size()==2) ans.push_back({n[0],n[1]});
-        else ans.push_back({n[0],s});
+        else{
+            bool ch=false;
+            int r=-1;
+            for(int u:adj[x]){
+                if(u==n[0]) ch=true;
+                else r=u;
+            }
+            if(ch) ans.push_back({n[0],r});
+            else ans.push_back({n[0],x});
+        }
     }
     return n;
 }
