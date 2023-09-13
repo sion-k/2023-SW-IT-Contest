@@ -10,6 +10,6 @@ int main(int argc, char* argv[]) {
     int n = inf.readInt(N_MIN, N_MAX, "n");
     inf.readEoln();
 
-    string s = inf.readLine("[RGB]{" + to_string(n) + "}", "s");
+    string s = inf.readLine(format("[RGB]{%d}", n), "s");
     inf.readEof();
 }
