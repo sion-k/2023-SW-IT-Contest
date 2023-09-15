@@ -14,8 +14,6 @@ inline void readAndCheckAnswer(InStream& in) {
 
     in.readLine("YES", "YES");
     vector<int> a = in.readInts(n, 1, n, "a");
-    in.readEoln();
-    in.readEof();
 
     vector<int> f(n + 1);
     for (int i = 0; i < n; i++) {
